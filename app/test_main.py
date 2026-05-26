@@ -19,7 +19,7 @@ def test_get_exchange_rate_prediction_to_sell(
         mock_exchange: MagicMock
 ) -> None:
     mock_exchange.return_value = 80
-    expected = "Sell more cryptocurrency"
+    expected = "Sell all your cryptocurrency"
     result = cryptocurrency_action(100)
 
     assert result == expected

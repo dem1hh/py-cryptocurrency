@@ -8,8 +8,10 @@ def test_get_exchange_rate_prediction_to_buy(
         mock_exchange: MagicMock
 ) -> None:
     mock_exchange.return_value = 120
+    expected = "Buy more cryptocurrency"
+    result = cryptocurrency_action(100)
 
-    assert cryptocurrency_action(100) == "Buy more cryptocurrency"
+    assert result == expected
 
 
 @mock.patch("app.main.get_exchange_rate_prediction")
@@ -17,8 +19,10 @@ def test_get_exchange_rate_prediction_to_sell(
         mock_exchange: MagicMock
 ) -> None:
     mock_exchange.return_value = 80
+    expected = "Sell more cryptocurrency"
+    result = cryptocurrency_action(100)
 
-    assert cryptocurrency_action(100) == "Sell all your cryptocurrency"
+    assert result == expected
 
 
 @mock.patch("app.main.get_exchange_rate_prediction")
@@ -26,5 +30,7 @@ def test_get_exchange_rate_prediction_to_do_nothing(
         mock_exchange: MagicMock
 ) -> None:
     mock_exchange.return_value = 101
+    expected = "Do nothing"
+    result = cryptocurrency_action(100)
 
-    assert cryptocurrency_action(100) == "Do nothing"
+    assert result == expected
